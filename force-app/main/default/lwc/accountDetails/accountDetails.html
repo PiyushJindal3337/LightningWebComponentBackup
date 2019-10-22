@@ -1,0 +1,34 @@
+<template>
+    <lightning-card title="Account Details">
+        <lightning-layout vertical-align="center">
+            <lightning-layout-item padding="around-small">
+                <!--<template if:true={searchKeyAcc}>-->
+                    <template if:true={selectAccount}>
+                        <p>{selectAccount.Name}</p>
+                        <p>{selectAccount.Phone}</p>
+                    </template>
+                <!--</template>-->
+            </lightning-layout-item>
+        </lightning-layout>
+        
+        <lightning-layout vertical-align="around-center">
+            <lightning-layout-item padding="around-center">
+                <lightning-input label="Find Account" value ={searchKeyAcc} onchange={handleChangeAccount}></lightning-input>
+                <lightning-button label="Search" variant="brand" onclick={findAccount}></lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+
+       <!-- <template if:true={searchKeyAcc}>-->
+            <template for:each={accounts} for:item="account">
+                    
+                <c-account-title key={account.Id} onselect={handleSelectRec} account={account}></c-account-title><br key={account.Id}>
+                
+                <lightning-layout-item key={account.Id}>
+                    <!--<lightning-formatted-text value={account.Name}></lightning-formatted-text>-->
+                    <!--<lightning-formatted-phone value={account.Phone}></lightning-formatted-phone>-->
+                    <!--<lightning-button label="Details"  onclick={fetch}></lightning-button>-->                 
+                </lightning-layout-item>
+            </template> 
+       <!-- </template>-->
+    </lightning-card>
+</template>

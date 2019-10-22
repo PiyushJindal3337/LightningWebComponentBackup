@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="Weather Details" class="slds-float_center">
+            <template for:each={weatherDetails} for:item="item">
+            <div key={item.key} class="slds-grid slds-gutters">
+                <lightning-card  class="slds-col" icon-name="custom:custom5">
+                        <p class="slds-p-horizontal_small">Max Temperature : {item.tempMax}</p>
+                        <p class="slds-p-horizontal_small">Min Temperature : {item.tempMin}</p>
+                        <p class="slds-p-horizontal_small">Wind Speed : {item.speed}</p>
+                </lightning-card>
+            </div>
+        </template>
+    </lightning-card>     
+</template>

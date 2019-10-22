@@ -1,0 +1,113 @@
+<template>
+    <lightning-card title = "Open Cases">
+        
+        <lightning-layout vertical-align= "center" horizontal-align="center">
+            <lightning-layout-item padding="center">
+                <lightning-button label="Open Cases" variant="brand" onclick={fetchOpenCases}></lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+                    
+        <!--<lightning-layout padding="center">
+            <template for:each = {cases} for:item = "openCase">                       
+                <p key={openCase.CaseNumber}>{openCase.CaseNumber}</p>           
+            </template>
+        </lightning-layout> -->
+        
+        <div class="slds-scrollable_y" style=" height:30rem; ">
+        <template for:each={cases} for:item="item">
+
+            <lightning-layout-item key={item.key} padding="around-small">
+               <div class="around-border">
+                
+                    <lightning-layout vertical-align="center">
+                            
+                        <lightning-layout-item padding="around-small">
+                            <p>
+                                <lightning-layout-item size="6">
+                                    <lightning-formatted-text value="Case Number : " size="6"></lightning-formatted-text>
+                                </lightning-layout-item>
+                                        
+                                <lightning-formatted-text title="Case Number" value={item.CaseNumber}></lightning-formatted-text>
+                            </p>
+                            <p>
+                                <lightning-layout-item size="6">
+                                    <lightning-formatted-text value="Status : " size="6"></lightning-formatted-text>
+                                </lightning-layout-item>
+                                        
+                                <lightning-formatted-text title="Status" value={item.Status}></lightning-formatted-text>
+                            </p>
+                            <p>
+                                <lightning-layout-item size="6">
+                                    <lightning-formatted-text value="E-Mail : " size="6"></lightning-formatted-text>
+                                </lightning-layout-item>
+                                        
+                                <lightning-formatted-email title="E-Mail" value={item.ContactEmail}></lightning-formatted-email>
+                            </p>
+                            <p>
+                                <lightning-layout-item size="6" padding="around">
+                                    <lightning-formatted-text value="Created Date : " size="6"></lightning-formatted-text>
+                                </lightning-layout-item>
+                                        
+                                <lightning-formatted-date-time title="Created Date" value={item.CreatedDate}></lightning-formatted-date-time>
+                            </p>
+                            <p>
+                                <lightning-layout-item>
+                                    <lightning-button label="Edit"  variant="brand" onclick={openmodal} id={item.Id} ></lightning-button>
+                                </lightning-layout-item>
+                            </p>
+                        </lightning-layout-item>
+
+                        
+                            
+                    </lightning-layout>
+                </div>
+            </lightning-layout-item>
+        </template>
+        </div>
+    </lightning-card>
+
+    <!--  ------------------------------- Starting of Modal/Pop Up window for editing Case details-------------------------- -->    
+    <template if:true={openmodel}>
+        <p>
+            hellooo
+        </p>
+            <div class="demo-only" style="height: 640px;">
+                <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                                                             aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                    <div class="slds-modal__container">
+                        <header class="slds-modal__header">
+                            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Edit Details</h2>
+                        </header>
+                        <div class="slds-modal__content slds-p-around_medium" >
+                            <lightning-record-edit-form
+                                onsuccess={handleSuccess}
+                                object-api-name="Case"
+                                record-id={modalCaseId}>
+                                <lightning-messages></lightning-messages>
+                                <div class="slds-grid">
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <lightning-input-field field-name="CaseNumber"></lightning-input-field>
+                                        <lightning-input-field field-name="Status"></lightning-input-field>
+                                        <lightning-input-field field-name="ContactEmail"></lightning-input-field>
+                                        <lightning-input-field field-name="CreatedDate"></lightning-input-field>
+                                    </div>
+                                </div>
+                                <div class="slds-m-top_medium">
+                                    <lightning-button type="submit" variant="brand" label="Save"></lightning-button>
+                                </div>
+                            </lightning-record-edit-form>
+                            <!--<lightning-record-edit-form
+                                object-api-name="Case"
+                                record-id={modalCaseId}>
+                                <p>
+                                    <lightning-input-field field-name="CaseNumber"></lightning-input-field>
+                                </p>
+                            </lightning-record-edit-form>-->
+                        </div>
+                     </div>
+                </section>
+                <div class="slds-backdrop slds-backdrop_open"></div>
+            </div>
+            </template>
+
+</template>

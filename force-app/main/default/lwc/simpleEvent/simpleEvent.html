@@ -1,0 +1,8 @@
+<template>
+    <!--Parent component is simpleEvent, name of the events are "prev","next" so we use onnext and onprev -->
+    <!--paginator is child component-->
+    <c-paginator onnext={handleNext} onprev={handlePrev} ></c-paginator>
+    <template if:true={page}>
+        Page Number : {page}
+    </template>
+</template>

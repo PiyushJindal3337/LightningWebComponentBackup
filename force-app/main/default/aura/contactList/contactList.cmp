@@ -1,0 +1,4 @@
+<aura:component>
+  <h2> I am from LWC</h2>
+  <c:contactListDemo/>
+</aura:component>	

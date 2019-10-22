@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Design Demo" icon-name="custom:custom5">
+        {greeting}
+        {message}
+        <p>
+            {label.testLabel}
+        </p>
+        <p>
+            <img src={label.testResource}/>
+        </p>
+        <p>
+            {label.userId}
+        </p>
+        <p>
+            {label.accountObject.objectApiName}
+            Name using name field: {label.name_fieldAcc}
+        </p>
+    </lightning-card>
+</template>

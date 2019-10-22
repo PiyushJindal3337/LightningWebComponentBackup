@@ -1,0 +1,61 @@
+<template>
+    <lightning-card title="Contact List" >
+        <lightning-layout vertical-align="center">
+            <lightning-layout vertical-align="center">
+                <lightning-layout-item padding="around-center">
+                    <lightning-input label="Find Contact" value ={searchKey} onchange={handleChange}></lightning-input>
+                </lightning-layout-item>
+            </lightning-layout>     
+            <template if:true={searchKey}>
+                <template for:each = {contacts} for:item = "contact">
+                    <lightning-layout-item key ={contact.key}>
+                        <p>{contact.Name}</p>
+                        <p><lightning-formatted-email value={contact.Email}></lightning-formatted-email></p>
+                        <lightning-formatted-phone value={contact.Phone}></lightning-formatted-phone></p>    
+                    </lightning-layout-item>
+                </template>
+            </template>
+            <lightning-layout-item padding="around-small">
+            </lightning-layout-item>    
+        </lightning-layout>
+    </lightning-card>
+    <lightning-layout vertical-align="center">
+        <lightning-layout-item padding="around-small">
+            <template if:true={selectAccount}>
+                <p>{selectAccount.Name}</p>
+                <p>{selectAccount.Phone}</p>
+            </template>
+        </lightning-layout-item>
+    </lightning-layout>
+
+    <lightning-layout title="Selected Account">
+        <lightning-layout-item>
+            <template if:true={selectAccount}>
+                <p>{selectAccount.Name}</p>
+                <p>{selectAccount.Phone}</p>
+            </template>
+        </lightning-layout-item>
+    </lightning-layout>
+
+    <lightning-card title="Account List" > 
+            <lightning-layout vertical-align="center">
+                <lightning-layout-item padding="around-center">
+                    <lightning-input label="Find Account" value ={searchKeyAcc} onchange={handleChangeAccount}></lightning-input>
+                    <lightning-button label="Find Account" variant="brand" onclick={findAccount}></lightning-button>
+                </lightning-layout-item>
+            </lightning-layout>
+            <template if:true={searchKeyAcc}>
+                <template for:each={accounts} for:item="account">
+                    
+                    <c-account-title key={account.Id} onselect={handleSelectRec} account={account}></c-account-title>
+                    
+                    <lightning-layout-item key={account.Id}>
+                        <p>{account.Name}</p>
+                        <lightning-formatted-text value={account.Name}></lightning-formatted-text>
+                        <lightning-formatted-phone value={account.Phone}></lightning-formatted-phone>
+                    </lightning-layout-item>
+                </template> 
+            </template>
+    </lightning-card>   
+    
+</template>

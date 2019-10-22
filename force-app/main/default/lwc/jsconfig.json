@@ -1,0 +1,65 @@
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "baseUrl": ".",
+        "paths": {
+            "c/accRelConTitle": [
+                "accRelConTitle/accRelConTitle.js"
+            ],
+            "c/accountDetails": [
+                "accountDetails/accountDetails.js"
+            ],
+            "c/accountRelContacts": [
+                "accountRelContacts/accountRelContacts.js"
+            ],
+            "c/accountTitle": [
+                "accountTitle/accountTitle.js"
+            ],
+            "c/apiProperty": [
+                "apiProperty/apiProperty.js"
+            ],
+            "c/chartBar": [
+                "chartBar/chartBar.js"
+            ],
+            "c/contactListDemo": [
+                "contactListDemo/contactListDemo.js"
+            ],
+            "c/designLwcDemo": [
+                "designLwcDemo/designLwcDemo.js"
+            ],
+            "c/helloWorld": [
+                "helloWorld/helloWorld.js"
+            ],
+            "c/lifecycleHooks": [
+                "lifecycleHooks/lifecycleHooks.js"
+            ],
+            "c/myFirstWebComponent": [
+                "myFirstWebComponent/myFirstWebComponent.js"
+            ],
+            "c/openCases": [
+                "openCases/openCases.js"
+            ],
+            "c/paginator": [
+                "paginator/paginator.js"
+            ],
+            "c/salesforceIntegration": [
+                "salesforceIntegration/salesforceIntegration.js"
+            ],
+            "c/simpleEvent": [
+                "simpleEvent/simpleEvent.js"
+            ],
+            "c/viewSource": [
+                "viewSource/viewSource.js"
+            ]
+        }
+    },
+    "include": [
+        "**/*",
+        "../../../../.sfdx/typings/lwc/**/*.d.ts"
+    ],
+    "typeAcquisition": {
+        "include": [
+            "jest"
+        ]
+    }
+}

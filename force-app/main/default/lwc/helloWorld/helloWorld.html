@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title="HelloWorld" icon-name="custom:custom14">
+        <div class="slds-m-around_medium">
+            <p> Hello, {greeting}!</p>
+            <lightning-input label="Name"  value={greeting} onchange={changeHandler}></lightning-input>
+            <lightning-formatted-text value={name} ></lightning-formatted-text>
+            <lightning-layout-item padding="around-center">
+                <lightning-button  label="Call Js" onclick={handleClick}></lightning-button>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-center">
+                <lightning-formatted-text value={userId}></lightning-formatted-text>        
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-center">
+                <template if:true = {records}>
+                Records.
+                </template>
+            </lightning-layout-item>
+            <lightning-layout-item  padding="around-center">
+                 <lightning-button label="Call Apex" onclick={handleClick2} variant="brand"></lightning-button>    
+            </lightning-layout-item>
+            <lightning-layout>
+                <lightning-layout-item padding="around-center">
+                    <template for:each={maps} for:item="item">
+                       <br key = {item.key}>
+                        {item.key} => {item.value}
+                    </template>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+    </lightning-card>
+</template>
